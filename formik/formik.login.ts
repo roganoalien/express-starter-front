@@ -7,6 +7,11 @@ export interface LoginSuperAdmin {
 	confirmPassword: string;
 }
 
+export interface LoginUserLogin {
+	email: string;
+	password: string;
+}
+
 export const SuperAdminSchema = Yup.object().shape({
 	name: Yup.string().notRequired(),
 	email: Yup.string().email("Invalid email! 🚨 🥷🏼 📧").required("Required field! 🔴"),
@@ -18,9 +23,19 @@ export const SuperAdminSchema = Yup.object().shape({
 		.required("Required field! 🔴")
 });
 
+export const LoginSchema = Yup.object().shape({
+	email: Yup.string().email("Invalid email! 🚨 🥷🏼 📧").required("Required field! 🔴"),
+	password: Yup.string().required("Required field! 🔴")
+});
+
 export const superAdminInit = {
 	email: "",
 	name: "",
 	password: "",
 	confirmPassword: ""
+};
+
+export const userLoginInit = {
+	email: "",
+	password: ""
 };

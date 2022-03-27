@@ -3,11 +3,17 @@
 // ███████║██████╔╝██║
 // ██╔══██║██╔═══╝ ██║
 // ██║  ██║██║     ██║
+
+import { Dispatch } from "@reduxjs/toolkit";
+
 // ╚═╝  ╚═╝╚═╝     ╚═╝
-interface ApiSuperAdmin {
-	email: string;
-	name: string;
-	password: string;
+interface ApiResponseSuperAdmin {
+	status: number;
+	message: string;
+}
+
+interface ApiResponseLogin extends ApiResponseSuperAdmin {
+	token?: string;
 }
 
 //  ██████╗ ██████╗ ███╗   ███╗██████╗  ██████╗ ███╗   ██╗███████╗███╗   ██╗████████╗███████╗
@@ -43,4 +49,18 @@ interface ResponseIsSuper {
 	status: number;
 	can_create: boolean;
 	type?: string;
+}
+
+// ██╗   ██╗████████╗██╗██╗     ███████╗
+// ██║   ██║╚══██╔══╝██║██║     ██╔════╝
+// ██║   ██║   ██║   ██║██║     ███████╗
+// ██║   ██║   ██║   ██║██║     ╚════██║
+// ╚██████╔╝   ██║   ██║███████╗███████║
+//  ╚═════╝    ╚═╝   ╚═╝╚══════╝╚══════╝
+
+interface UtilGlobalAlert {
+	dispatch: Dispatch;
+	message: string;
+	title: string;
+	isSuccess: boolean;
 }
